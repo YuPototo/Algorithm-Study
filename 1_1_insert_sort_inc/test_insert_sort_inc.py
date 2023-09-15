@@ -1,4 +1,4 @@
-from insert_sort import insert_sort
+from insert_sort_inc import insert_sort
 
 
 def test_case_1():
