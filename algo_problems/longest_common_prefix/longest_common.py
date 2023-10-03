@@ -1,24 +1,50 @@
 from typing import List
 
 
+## Vertical Scanning: it's like my first approach
 def longest_common_prefix(strs: List[str]) -> str:
-    common = strs[0]
-    for i in range(0, len(strs)):
-        if i + 1 >= len(strs):
-            return common
-        common = lcp_2(common, strs[i + 1])
+    if not strs:
+        return ""
+    for i in range(len(strs[0])):
+        c = strs[0][i]
+        for j in range(1, len(strs)):
+            if i == len(strs[j]) or strs[j][i] != c:
+                return strs[0][:i]
+    return strs[0]
 
 
-def lcp_2(str_1: str, str_2: str) -> str:
-    common = ""
-    for i in range(0, len(str_1)):
-        if i >= len(str_2):
-            return common
-        if str_1[i] == str_2[i]:
-            common += str_1[i]
-        else:
-            return common
-    return common
+## Horizontal scanning: from leetcode
+# def longest_common_prefix(strs: List[str]) -> str:
+#     if not strs:
+#         return ""
+#     prefix = strs[0]
+#     for i in range(1, len(strs)):
+#         while strs[i].find(prefix) != 0:
+#             prefix = prefix[:-1]
+#             if not prefix:
+#                 return ""
+#     return prefix
+
+
+## My approach when reading leet code prompt
+# def longest_common_prefix(strs: List[str]) -> str:
+#     common = strs[0]
+#     for i in range(0, len(strs)):
+#         if i + 1 >= len(strs):
+#             return common
+#         common = lcp_2(common, strs[i + 1])
+
+
+# def lcp_2(str_1: str, str_2: str) -> str:
+#     common = ""
+#     for i in range(0, len(str_1)):
+#         if i >= len(str_2):
+#             return common
+#         if str_1[i] == str_2[i]:
+#             common += str_1[i]
+#         else:
+#             return common
+#     return common
 
 
 # # Following approach is my intuitive approach
