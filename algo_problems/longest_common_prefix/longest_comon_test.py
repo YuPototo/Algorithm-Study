@@ -20,3 +20,7 @@ def test_4():
 
 def test_5():
     assert longest_common_prefix(["cir", "car"]) == "c"
+
+
+def test_6():
+    assert longest_common_prefix(["leetcode", "leet", "lee", "le"]) == "le"

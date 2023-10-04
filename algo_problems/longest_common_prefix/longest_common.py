@@ -1,16 +1,49 @@
 from typing import List
+import math
 
+
+## Divide and Conquer
+# def longest_common_prefix(strs: List[str]) -> str:
+#     return longest_common_prefix_helper(strs, 0, len(strs) - 1)
+
+
+# def longest_common_prefix_helper(strs: List[str], l: int, r: int) -> str:
+#     # base case: if l == r, return strs[l]
+#     if l == r:
+#         return strs[l]
+#     else:
+#         # divide the array into two halves
+#         mid = (l + r) // 2
+#         # recursively call the function on the two halves
+#         # lcp_left is the longest common prefix of the left half
+#         lcp_left = longest_common_prefix_helper(strs, l, mid)
+
+#         # lcp_right is the longest common prefix of the right half
+#         lcp_right = longest_common_prefix_helper(strs, mid + 1, r)
+
+#         # return the longest common prefix of lcp_left and lcp_right
+#         return common_prefix(lcp_left, lcp_right)
+
+
+# def common_prefix(left: str, right: str):
+#     min_length = min(len(left), len(right))
+#     for i in range(min_length):
+#         if left[i] != right[i]:
+#             return left[:i]
+#     return left[:min_length]
+
+# -----
 
 ## Vertical Scanning: it's like my first approach
-def longest_common_prefix(strs: List[str]) -> str:
-    if not strs:
-        return ""
-    for i in range(len(strs[0])):
-        c = strs[0][i]
-        for j in range(1, len(strs)):
-            if i == len(strs[j]) or strs[j][i] != c:
-                return strs[0][:i]
-    return strs[0]
+# def longest_common_prefix(strs: List[str]) -> str:
+#     if not strs:
+#         return ""
+#     for i in range(len(strs[0])):
+#         c = strs[0][i]
+#         for j in range(1, len(strs)):
+#             if i == len(strs[j]) or strs[j][i] != c:
+#                 return strs[0][:i]
+#     return strs[0]
 
 
 ## Horizontal scanning: from leetcode
@@ -25,6 +58,8 @@ def longest_common_prefix(strs: List[str]) -> str:
 #                 return ""
 #     return prefix
 
+
+# -----
 
 ## My approach when reading leet code prompt
 # def longest_common_prefix(strs: List[str]) -> str:
@@ -45,6 +80,9 @@ def longest_common_prefix(strs: List[str]) -> str:
 #         else:
 #             return common
 #     return common
+
+
+# -----
 
 
 # # Following approach is my intuitive approach
